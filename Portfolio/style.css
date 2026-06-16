@@ -1,0 +1,87 @@
+:root {
+    --header-and-footer-color: #532552;
+    --font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: var(--header-and-footer-color);
+    color: white;
+    font-family: var(--font-family);
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 25%;
+}
+
+#header-name {
+    font-weight: bold;
+    flex: 1;
+    width: 40%;
+    font-size: 20px;
+}
+
+* nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    font-size: 15px;
+    
+}
+
+* nav button {
+    padding: 3px 10px;
+    border-radius: 8px;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+    background-color: white;
+    color: var(--header-and-footer-color);
+}
+
+* main {
+    flex-direction: row;
+    justify-items: center;
+    align-items: center;
+    flex: 0 0 50%;
+}
+#profile-pic {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-self: center;
+    width: 190%;
+    height: auto;
+}
+#intro-text {
+    font-size: 18px;
+    margin-top: 2%
+}
+
+footer {
+    background-color: var(--header-and-footer-color);
+    color: white;
+    font-family: var(--font-family);
+    text-align: center;
+    padding: 10px;
+    flex: 0 0 25%;
+    font-size: 20px;
+}
+
+* hr {
+    color: black;
+}
+
+
