@@ -1,0 +1,42 @@
+BEGIN
+
+CLASS Book 
+	CONSTRUCTOR(fileName)
+		SET self.fileName TO fileName
+		SET self.indexReference TO “prog” + counterIndex
+		SET self.bookTitle TO fileName[INDEX 1]
+		SET self.bookAuthor TO fileName[INDEX 2]
+		SET self.publisher TO fileName[INDEX 3]
+		SET self.publicationDate TO fileName[INDEX 4]
+	END CONSTRUCTOR
+
+	FUNCTION bookDetails()
+		RETURN FORMATED STRING WITH ALL ATTRIBUTES
+	END FUNCTION
+END CLASS
+
+FUNCTION readFile(fileName)
+	SET counter TO 1
+
+    OPEN “bookStorage.txt” FOR READING AS inputFile
+    OPEN “indexStorage.txt” FOR APPENDING AS outputFile
+
+    IF lengthOfFile > 0 THEN 
+        FOR EACH line IN inputFile
+	        SET details TO SPLIT line BY “,’
+            CREATE new Book OBJECT USING (counterIndex, details)
+            SET output TO CALL Book.get_details()
+            WRITE output TO outputFile
+            ADD newLine TO outputFile
+            INCREMENT counter
+        END FOR
+	ELSE
+		PRINT “Error: FIle is empty”
+	END IF
+
+    CLOSE inputFile
+    CLOSE outputFile
+END FUNCTION
+
+CALL readFile(“book_storage.txt”)
+END
